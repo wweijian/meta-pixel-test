@@ -23,9 +23,11 @@ Restart the dev server after changing it. Next.js embeds this public browser ID 
 | --- | --- | --- |
 | Visit a page or navigate between routes/query strings | `PageView` | None |
 | Open a product | `ViewContent` | Product ID, name, type, value, currency |
-| Add a selected size or increase its quantity | `AddToCart` | Product details and quantity/value added |
+| Click Add to cart (catalog or product page), Buy now on a product, or increase quantity | `AddToCart` | Product details and quantity/value added |
 | Open checkout with a nonempty bag | `InitiateCheckout` | Product IDs, contents, item count, total, currency |
-| Place a demo order | `Purchase` | Cart details, total, currency, order ID |
+| Click Buy now at checkout | `Purchase` | Cart details, total, currency, order ID |
+
+Choose a size (US 9 is selected by default), then use **Add to cart** on a catalog card or product page. The header cart count updates immediately, and the cart persists after reload. Product-page **Buy now** adds that pair to the cart and opens checkout for the full cart. The final **Buy now** button at checkout creates the demo order, sends `Purchase`, and clears the cart. No payment is taken.
 
 All prices use USD. Removing items does not emit `AddToCart`. Visiting or refreshing the confirmation page does not emit `Purchase`. Order creation clears the bag synchronously to prevent repeat purchases. The order ID is also Meta's `eventID`, ready for future browser/server deduplication.
 

@@ -15,7 +15,7 @@ export function Header() {
       <div className="header-inner">
         <Link href="/" className="wordmark" aria-label="Sole Supply home">sole<span className="wordmark-dot">.</span><span className="wordmark-small">SUPPLY</span></Link>
         <nav className="main-nav" aria-label="Main navigation"><Link href="/#collection">Shop all</Link><Link href="/?category=Running#collection">Running</Link><Link href="/?category=Everyday#collection">Everyday</Link></nav>
-        <div className="header-actions"><Link href="/cart" className="bag-link" aria-label={`Shopping bag, ${count} items`}><Icon name="bag" /><span className="bag-label">Bag</span><span className="bag-count">{count}</span></Link></div>
+        <div className="header-actions"><Link href="/cart" className="bag-link" aria-label={`Shopping cart, ${count} items`}><Icon name="bag" /><span className="bag-label">Cart</span><span className="bag-count">{count}</span></Link></div>
       </div>
       {/* RootLayout shares this header, and therefore the Pixel, across routes. */}
       <Suspense fallback={null}><MetaPixel /></Suspense>
